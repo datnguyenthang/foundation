@@ -187,9 +187,13 @@ class InjectionFactory
 		return $this->container->resolve('uri', array($uri));
 	}
 
+	/**
+	 * Checks if the current request is the "main" (only one)
+	 */
 	public function isMainRequest()
 	{
 		$stack = $this->container->resolve('requeststack');
+
 		return count($stack) === 1;
 	}
 }
